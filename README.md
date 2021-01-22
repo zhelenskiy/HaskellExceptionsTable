@@ -1,7 +1,7 @@
 # HaskellExceptionsTable
 <table>
 <tr>
-  <th> Разновидность Exception-а </th> <th> Комментарий </th>  <th> Место кидания </th> <th> Способ кидания </th> <th> Место отлова </th> <th> Способ поимки </th>
+  <th> Разновидность Exception-а </th> <th> Комментарий </th>  <th> Место кидания </th> <th> Способ кидания </th> <th> Место отлова </th> <th> Способ отлова </th>
 </tr>
 <tr> 
   <td> ExceptT                   </td> <td> Имитация исключения с помощью Either </td> <td> Чистый код </td> <td> 
