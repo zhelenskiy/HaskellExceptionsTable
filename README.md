@@ -1,18 +1,18 @@
 # HaskellExceptionsTable
 <table>
 <tr>
-  <th> Разновидность Exception-а </th> <th> Комментарий </th>  <th> Место кидания </th> <th> Способ кидания </th> <th> Место поимки </th> <th> Способ поимки </th> <th> Пример </th>
+  <th> Разновидность Exception-а </th> <th> Комментарий </th>  <th> Место кидания </th> <th> Способ кидания </th> <th> Место отлова </th> <th> Способ поимки </th> <th> Пример </th>
 </tr>
 <tr> 
   <td> ExceptT                   </td> <td> Имитация исключения с помощью Either </td> <td> Чистый код </td> <td> 
 
 ```haskell
-throwError :: MonadError e m => e -> m a
+throwError
 ```
 </td> <td> Чистый код </td> <td> 
 
 ```haskell
-catchError :: MonadError e m => m a -> (e -> m a) -> m a
+catchError
 ``` 
 </td> <td>
 
@@ -39,7 +39,7 @@ calculateLength = do
 <tr> <td> Exception                 </td> <td> Чистый Exception </td> <td> Чистый код </td> <td> 
 
 ```haskell
-throw :: Exception e => e -> a
+throw
 ```
 </td> <td> 
 
@@ -49,7 +49,7 @@ IO
 </td> <td>
  
 ```haskell
-catch :: Exception e => IO a -> (e -> IO a) -> IO a
+catch
 ```
 </td> <td>
 
@@ -66,7 +66,7 @@ IO
 </td> <td> 
 
 ```haskell
-throwIO :: Exception e => e -> IO a
+throwIO
 ```
 </td> <td>  
 
@@ -76,7 +76,7 @@ IO
 </td> <td> 
 
 ```haskell
-catch :: Exception e => IO a -> (e -> IO a) -> IO a
+catch
 ```  
 </td> <td> 
 
@@ -93,7 +93,7 @@ IO
 </td> <td> 
 
 ```haskell
-throwTo :: Exception e => ThreadId -> e -> IO ()
+throwTo
 ```
 </td> <td> 
  
@@ -103,7 +103,7 @@ IO
 (поток с указанным `id`) </td> <td> 
  
 ```haskell
-catch :: Exception e => IO a -> (e -> IO a) -> IO a
+catch
 ```
 </td> <td>
 
@@ -116,3 +116,27 @@ throwTo tid MyException
 ```
 </td> </tr>
 </table>
+
+```haskell
+throwError :: MonadError e m => e -> m a
+```
+
+```haskell
+catchError :: MonadError e m => m a -> (e -> m a) -> m a
+``` 
+
+```haskell
+throw :: Exception e => e -> a
+```
+
+```haskell
+throwIO :: Exception e => e -> IO a
+```
+
+```haskell
+throwTo :: Exception e => ThreadId -> e -> IO ()
+```
+
+```haskell
+catch :: Exception e => IO a -> (e -> IO a) -> IO a
+```
