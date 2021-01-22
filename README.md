@@ -101,6 +101,10 @@ throwTo :: Exception e => ThreadId -> e -> IO ()
 catch :: Exception e => IO a -> (e -> IO a) -> IO a
 ```
 
+## Documentation
+* [Real exceptions](https://hackage.haskell.org/package/base-4.14.0.0/docs/Control-Exception.html)
+* [ExceptT exceptions](https://hackage.haskell.org/package/mtl-2.2.2/docs/Control-Monad-Except.html)
+
 ## Examples
 
 * ExceptT
